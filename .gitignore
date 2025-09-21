@@ -1,0 +1,23 @@
+# Qt 编译目录
+build-*
+*.pro.user
+*.pro.user.*
+*.qmake.stash
+
+# 中间文件和可执行文件
+*.obj
+*.o
+*.exe
+*.dll
+*.so
+*.dylib
+
+# 调试文件
+*.pdb
+*.dSYM/
+
+# IDE 配置（如果用 Qt Creator）
+.idea/
+.vscode/
+*.swp
+*.swo

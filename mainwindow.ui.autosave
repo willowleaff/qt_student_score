@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>820</width>
+    <height>488</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QStackedWidget#stackedWidget
+{
+	background-image: url(:/images/background.png);
+}
+QStackedWidget#stackedWidget QPushButton
+{
+	border:none;
+	background-color: rgb(255, 255, 255);
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="styleSheet">
+       <string notr="true">QStackedWidget#stackedWidget
+{
+	
+	border-image: url(:/images/bg1.png);
+}
+QStackedWidget#stackedWidget QPushButton
+{
+	border:none;
+	background-color: rgb(255, 255, 255);
+	font: 12pt &quot;宋体&quot;;
+}
+QStackedWidget#stackedWidget QPushButton:hover
+{
+	border:none;
+	background-color: rgb(170, 255, 255)
+	
+}
+QLabel
+{
+	border:none;
+	font: 18pt &quot;宋体&quot;;
+
+}</string>
+      </property>
+      <property name="currentIndex">
+       <number>5</number>
+      </property>
+      <widget class="QWidget" name="memupage">
+       <widget class="QPushButton" name="LookBtn">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>130</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>61</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>学生成绩查询</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="StatBtn">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>180</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>学生成绩统计</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="QuitBtn">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>20</y>
+          <width>71</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>退出系统</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="StuLa">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>40</y>
+          <width>191</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; color:#000000;&quot;&gt;学生成绩管理系统&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="AsBtn">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>240</y>
+          <width>81</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>成绩分析</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="MoBtn">
+        <property name="geometry">
+         <rect>
+          <x>430</x>
+          <y>240</y>
+          <width>81</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>奖学金评定</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="aspage">
+       <widget class="QFrame" name="plotFrame">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>120</y>
+          <width>201</width>
+          <height>181</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Raised</enum>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="fqpage">
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>170</y>
+          <width>56</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="mopage"/>
+      <widget class="QWidget" name="lookpage">
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-10</y>
+          <width>181</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>学生成绩查询</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="LookTW">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>40</y>
+          <width>701</width>
+          <height>341</height>
+         </rect>
+        </property>
+        <row/>
+       </widget>
+       <widget class="QPushButton" name="addBtn">
+        <property name="geometry">
+         <rect>
+          <x>720</x>
+          <y>230</y>
+          <width>71</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>添加数据</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="saveBtn">
+        <property name="geometry">
+         <rect>
+          <x>720</x>
+          <y>280</y>
+          <width>71</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>保存修改</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="LSBtn">
+        <property name="geometry">
+         <rect>
+          <x>720</x>
+          <y>90</y>
+          <width>71</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>成绩筛选</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="statpage">
+       <widget class="QTableWidget" name="StTW">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>0</y>
+          <width>721</width>
+          <height>431</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>820</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
