@@ -99,7 +99,7 @@ void MainWindow::on_LookBtn_released()
 //     //通过文件操作数据（处理麻烦，格式规范）
 //     //数据库存储 学生表 成绩表 班级表 选课表...
 //     //大数据分析 大数据处理...数据库
-//     //学！！！魔鬼的爪牙c、c++、数据结构，Qt,MFC,win32,企业开发框架，数据库，网络编程，多线程
+//     //c、c++、数据结构，Qt,MFC,win32,企业开发框架，数据库，网络编程，多线程
 
 // }
 void MainWindow::saveData(const QString &filename)
