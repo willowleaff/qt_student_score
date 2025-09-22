@@ -12,11 +12,13 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     normaldistributionplot.cpp \
+    scorepiechart.cpp \
     student.cpp
 
 HEADERS += \
     mainwindow.h \
     normaldistributionplot.h \
+    scorepiechart.h \
     student.h
 
 FORMS += \

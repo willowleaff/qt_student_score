@@ -6,19 +6,15 @@
 #include<QList>
 #include<QTableWidgetItem>
 #include<QMessageBox>
+#include "scorepiechart.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , m_plot(nullptr) // 初始化绘图控件指针
+    , m_pieChart(nullptr)
 {
     ui->setupUi(this);
-    // 初始化绘图控件，放在statpage页面（假设UI中有一个QFrame名为plotFrame）
-    // m_plot = new NormalDistributionPlot(ui->plotFrame);
-    // m_plot->setGeometry(ui->plotFrame->rect()); // 填充整个frame
-    m_plot = new NormalDistributionPlot(ui->plotFrame);
-    m_plot->setGeometry(ui->plotFrame->rect()); // 填充整个QFrame
-    // 关键：让绘图控件随QFrame缩放（若QFrame大小变化，绘图控件也变化）
-    m_plot->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    initStatPageLayout();
     loadData("D:\\qt\\student\\student.txt");
 }
 
@@ -124,16 +120,39 @@ void MainWindow::saveData(const QString &filename)
     }
     QMessageBox::information(this, "提示", "数据已保存到文本文件");
 }
+void MainWindow::initStatPageLayout()
+{
+    // 1. 获取statpage的布局（之前设置的垂直布局）
+    QVBoxLayout *asLayout = qobject_cast<QVBoxLayout*>(ui->aspage->layout());
+    if (!asLayout) {
+        // 如果没有布局，新建一个垂直布局
+        asLayout = new QVBoxLayout(ui->aspage);
+        asLayout->setContentsMargins(10, 10, 10, 10);
+        asLayout->setSpacing(10);
+    }
+
+    // 2. 创建一个水平布局，用于并排显示两个图表
+    QHBoxLayout *chartsLayout = new QHBoxLayout();
+    chartsLayout->setSpacing(20);
+
+    // 3. 初始化正态分布图
+    m_plot = new NormalDistributionPlot();
+    m_plot->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    chartsLayout->addWidget(m_plot);
+
+    // 4. 初始化饼状图
+    m_pieChart = new ScorePieChart();
+    m_pieChart->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    chartsLayout->addWidget(m_pieChart);
+
+    // 5. 将图表布局添加到统计页面
+    asLayout->addLayout(chartsLayout);
+}
+
 void MainWindow::on_StatBtn_released()
 {
     //切换到统计页面
     ui->stackedWidget->setCurrentWidget(ui->statpage);
-    // 提取数学成绩并绘制正态分布
-    QVector<double> mathScores;
-    for (auto s : m_students) {
-        mathScores.append(s->math);
-    }
-    m_plot->setScores(mathScores);
 }
 
 
@@ -174,6 +193,15 @@ void MainWindow::on_AsBtn_released()
 {
     //切换到页面
     ui->stackedWidget->setCurrentWidget(ui->aspage);
+    // 提取数学成绩
+    QVector<double> mathScores;
+    for (auto s : m_students) {
+        mathScores.append(s->math);
+    }
+
+    // 同时更新两个图表
+    m_plot->setScores(mathScores);
+    m_pieChart->setScores(mathScores);
 }
 
 void MainWindow::on_MoBtn_released()
@@ -181,4 +209,3 @@ void MainWindow::on_MoBtn_released()
     //切换到页面
     ui->stackedWidget->setCurrentWidget(ui->mopage);
 }
-void MainWindow::on_pushButton_released(){}

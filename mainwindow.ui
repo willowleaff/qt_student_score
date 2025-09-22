@@ -55,7 +55,7 @@ QLabel
 }</string>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="memupage">
        <widget class="QPushButton" name="LookBtn">
@@ -143,40 +143,6 @@ QLabel
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="aspage">
-       <widget class="QFrame" name="plotFrame">
-        <property name="geometry">
-         <rect>
-          <x>80</x>
-          <y>120</y>
-          <width>201</width>
-          <height>181</height>
-         </rect>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::Shape::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Shadow::Raised</enum>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="fqpage">
-       <widget class="QPushButton" name="pushButton">
-        <property name="geometry">
-         <rect>
-          <x>260</x>
-          <y>170</y>
-          <width>56</width>
-          <height>18</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="mopage"/>
       <widget class="QWidget" name="lookpage">
        <widget class="QLabel" name="label_2">
         <property name="geometry">
@@ -251,6 +217,40 @@ QLabel
           <width>721</width>
           <height>431</height>
          </rect>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="aspage">
+       <widget class="QFrame" name="plotFrame">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>120</y>
+          <width>201</width>
+          <height>181</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Raised</enum>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="mopage"/>
+      <widget class="QWidget" name="fqpage">
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>170</y>
+          <width>56</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>PushButton</string>
         </property>
        </widget>
       </widget>

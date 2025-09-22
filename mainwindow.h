@@ -5,6 +5,7 @@
 #include<QWidget>
 #include"student.h"
 #include"normaldistributionplot.h"
+#include"scorepiechart.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -24,6 +25,7 @@ public:
     void loadData(const QString &filename);
     //保存数据
     void saveData(const QString &filename);
+    void initStatPageLayout();
 
 private slots:
 
@@ -37,8 +39,6 @@ private slots:
 
     void on_saveBtn_released();
 
-    void on_pushButton_released();
-
     void on_AsBtn_released();
 
     void on_MoBtn_released();
@@ -48,5 +48,6 @@ private:
     QStringList m_fields;//表头字段（封装）
     QList<Student*> m_students;
     NormalDistributionPlot *m_plot; //绘图控件指针
+    ScorePieChart *m_pieChart; //绘图控件指针
 };
 #endif // MAINWINDOW_H
