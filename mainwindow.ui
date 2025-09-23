@@ -143,6 +143,44 @@ QLabel
         </property>
        </widget>
       </widget>
+      <widget class="QWidget" name="Anspage">
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>90</y>
+          <width>161</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>选择科目分析</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="AnsBtn">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>270</y>
+          <width>81</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>分析</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="AnsCb">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>200</y>
+          <width>131</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
       <widget class="QWidget" name="lookpage">
        <widget class="QLabel" name="label_2">
         <property name="geometry">
@@ -208,15 +246,386 @@ QLabel
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="statpage">
-       <widget class="QTableWidget" name="StTW">
+      <widget class="QWidget" name="choopage">
+       <widget class="QPushButton" name="classBtn">
         <property name="geometry">
          <rect>
-          <x>50</x>
-          <y>0</y>
-          <width>721</width>
+          <x>200</x>
+          <y>330</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>班级查询</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="obBtn">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>330</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>专业查询</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="classEdit">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>130</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="majorEdit">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>130</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="subjectCombo">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>200</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="currentText">
+         <string extracomment="所有科目"/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>130</y>
+          <width>51</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>班级：</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>200</y>
+          <width>61</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>科目：</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>240</y>
+          <width>81</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>分数段：</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="minScoreEdit">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>250</y>
+          <width>41</width>
+          <height>16</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="maxScoreEdit">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>250</y>
+          <width>41</width>
+          <height>16</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>490</x>
+          <y>130</y>
+          <width>41</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>专业：</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="classpage">
+       <widget class="QTableWidget" name="filterTW">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>10</y>
+          <width>751</width>
           <height>431</height>
          </rect>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="statpage">
+       <widget class="QPushButton" name="rankBtn">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>80</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>学生排名</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="class_scoreBtn">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>160</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>班级成绩</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="major_scoreBtn">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>250</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>专业成绩</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="class_scoreEt">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>170</y>
+          <width>121</width>
+          <height>21</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="major_scoreEt">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>260</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="class_scoreCb">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>170</y>
+          <width>101</width>
+          <height>21</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="major_scoreCb">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>260</y>
+          <width>101</width>
+          <height>21</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="rankpage">
+       <widget class="QTableWidget" name="rankTable">
+        <property name="geometry">
+         <rect>
+          <x>-10</x>
+          <y>10</y>
+          <width>821</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <attribute name="verticalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="scorepage">
+       <widget class="QLabel" name="mathAverageLabel">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>40</y>
+          <width>221</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="mathHighestLabel">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>250</y>
+          <width>201</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="mathLowestLabel">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>200</y>
+          <width>171</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="mathPassRateLabel">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>150</y>
+          <width>181</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="mathExcellentRateLabel">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>100</y>
+          <width>181</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="statsTable">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>30</y>
+          <width>521</width>
+          <height>351</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="downloadBtn">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>360</y>
+          <width>56</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>下载文件</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="CM">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>30</y>
+          <width>71</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="major_scorepage"/>
+      <widget class="QWidget" name="Asspage">
+       <widget class="QPushButton" name="AssPb">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>260</y>
+          <width>121</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>查询</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="AssCb">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>200</y>
+          <width>131</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>140</y>
+          <width>191</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>选择科目分析</string>
         </property>
        </widget>
       </widget>
@@ -238,7 +647,44 @@ QLabel
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="mopage"/>
+      <widget class="QWidget" name="mopage">
+       <widget class="QTableWidget" name="scholarshipTable">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>40</y>
+          <width>521</width>
+          <height>381</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="evalScholarshipBtn">
+        <property name="geometry">
+         <rect>
+          <x>680</x>
+          <y>90</y>
+          <width>71</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>评定奖学金</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="exportScholarshipBtn">
+        <property name="geometry">
+         <rect>
+          <x>680</x>
+          <y>140</y>
+          <width>81</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>导出结果</string>
+        </property>
+       </widget>
+      </widget>
       <widget class="QWidget" name="fqpage">
        <widget class="QPushButton" name="pushButton">
         <property name="geometry">

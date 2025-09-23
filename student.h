@@ -8,10 +8,19 @@ public:
     void display();
     QString number;
     QString name;
+    QString sex;
+    QString major;
     QString classname;
     qreal math;
-    qreal chinese;
-    qreal english;
+    qreal cp;
+    qreal pd;
+    qreal ds;
+    qreal la;
+    qreal dm;
+    qreal totalScore;
+    qreal averageScore;
+    double rankPercent;
+    QString scholarshipLevel;
 };
 
 #endif // STUDENT_H

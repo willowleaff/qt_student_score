@@ -3,5 +3,5 @@
 Student::Student() {}
 void Student::display()
 {
-    qInfo()<<number<<name<<classname<<math<<chinese<<english;
+    qInfo()<<number<<name<<sex<<major<<classname<<math<<cp<<pd<<ds<<la<<dm;
 }
