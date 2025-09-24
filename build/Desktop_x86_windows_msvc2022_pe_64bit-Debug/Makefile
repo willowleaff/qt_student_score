@@ -422,6 +422,7 @@ Makefile: ..\..\StudentManagement.pro ..\..\..\6.8.1\msvc2022_64\mkspecs\feature
 		..\..\..\6.8.1\msvc2022_64\mkspecs\features\moc.prf \
 		..\..\..\6.8.1\msvc2022_64\mkspecs\features\win32\opengl.prf \
 		..\..\..\6.8.1\msvc2022_64\mkspecs\features\uic.prf \
+		..\..\..\6.8.1\msvc2022_64\mkspecs\features\win32\dumpcpp.prf \
 		..\..\..\6.8.1\msvc2022_64\mkspecs\features\qmake_use.prf \
 		..\..\..\6.8.1\msvc2022_64\mkspecs\features\file_copies.prf \
 		..\..\..\6.8.1\msvc2022_64\mkspecs\features\win32\windows.prf \
@@ -430,12 +431,14 @@ Makefile: ..\..\StudentManagement.pro ..\..\..\6.8.1\msvc2022_64\mkspecs\feature
 		..\..\..\6.8.1\msvc2022_64\mkspecs\features\yacc.prf \
 		..\..\..\6.8.1\msvc2022_64\mkspecs\features\lex.prf \
 		..\..\StudentManagement.pro \
+		..\..\..\6.8.1\msvc2022_64\lib\Qt6AxContainer.prl \
 		..\..\..\6.8.1\msvc2022_64\lib\Qt6Widgets.prl \
 		..\..\..\6.8.1\msvc2022_64\lib\Qt6Gui.prl \
 		..\..\..\6.8.1\msvc2022_64\lib\Qt6Core.prl \
 		..\..\..\6.8.1\msvc2022_64\lib\Qt6EntryPoint.prl \
 		..\..\..\6.8.1\msvc2022_64\mkspecs\features\build_pass.prf \
 		..\..\images.qrc \
+		..\..\..\6.8.1\msvc2022_64\lib\Qt6AxContainerd.prl \
 		..\..\..\6.8.1\msvc2022_64\lib\Qt6Widgetsd.prl \
 		..\..\..\6.8.1\msvc2022_64\lib\Qt6Guid.prl \
 		..\..\..\6.8.1\msvc2022_64\lib\Qt6Cored.prl \
@@ -779,6 +782,7 @@ Makefile: ..\..\StudentManagement.pro ..\..\..\6.8.1\msvc2022_64\mkspecs\feature
 ..\..\..\6.8.1\msvc2022_64\mkspecs\features\moc.prf:
 ..\..\..\6.8.1\msvc2022_64\mkspecs\features\win32\opengl.prf:
 ..\..\..\6.8.1\msvc2022_64\mkspecs\features\uic.prf:
+..\..\..\6.8.1\msvc2022_64\mkspecs\features\win32\dumpcpp.prf:
 ..\..\..\6.8.1\msvc2022_64\mkspecs\features\qmake_use.prf:
 ..\..\..\6.8.1\msvc2022_64\mkspecs\features\file_copies.prf:
 ..\..\..\6.8.1\msvc2022_64\mkspecs\features\win32\windows.prf:
@@ -787,12 +791,14 @@ Makefile: ..\..\StudentManagement.pro ..\..\..\6.8.1\msvc2022_64\mkspecs\feature
 ..\..\..\6.8.1\msvc2022_64\mkspecs\features\yacc.prf:
 ..\..\..\6.8.1\msvc2022_64\mkspecs\features\lex.prf:
 ..\..\StudentManagement.pro:
+..\..\..\6.8.1\msvc2022_64\lib\Qt6AxContainer.prl:
 ..\..\..\6.8.1\msvc2022_64\lib\Qt6Widgets.prl:
 ..\..\..\6.8.1\msvc2022_64\lib\Qt6Gui.prl:
 ..\..\..\6.8.1\msvc2022_64\lib\Qt6Core.prl:
 ..\..\..\6.8.1\msvc2022_64\lib\Qt6EntryPoint.prl:
 ..\..\..\6.8.1\msvc2022_64\mkspecs\features\build_pass.prf:
 ..\..\images.qrc:
+..\..\..\6.8.1\msvc2022_64\lib\Qt6AxContainerd.prl:
 ..\..\..\6.8.1\msvc2022_64\lib\Qt6Widgetsd.prl:
 ..\..\..\6.8.1\msvc2022_64\lib\Qt6Guid.prl:
 ..\..\..\6.8.1\msvc2022_64\lib\Qt6Cored.prl:

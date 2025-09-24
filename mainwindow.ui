@@ -55,7 +55,7 @@ QLabel
 }</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>7</number>
       </property>
       <widget class="QWidget" name="memupage">
        <widget class="QPushButton" name="LookBtn">
@@ -581,7 +581,7 @@ QLabel
          <rect>
           <x>560</x>
           <y>30</y>
-          <width>71</width>
+          <width>241</width>
           <height>21</height>
          </rect>
         </property>
@@ -661,9 +661,9 @@ QLabel
        <widget class="QPushButton" name="evalScholarshipBtn">
         <property name="geometry">
          <rect>
-          <x>680</x>
-          <y>90</y>
-          <width>71</width>
+          <x>690</x>
+          <y>150</y>
+          <width>81</width>
           <height>41</height>
          </rect>
         </property>
@@ -675,8 +675,8 @@ QLabel
         <property name="geometry">
          <rect>
           <x>680</x>
-          <y>140</y>
-          <width>81</width>
+          <y>200</y>
+          <width>91</width>
           <height>31</height>
          </rect>
         </property>

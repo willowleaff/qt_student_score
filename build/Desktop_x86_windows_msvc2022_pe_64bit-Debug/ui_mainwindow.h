@@ -297,7 +297,7 @@ public:
         downloadBtn->setGeometry(QRect(580, 360, 56, 18));
         CM = new QLabel(scorepage);
         CM->setObjectName("CM");
-        CM->setGeometry(QRect(560, 30, 71, 21));
+        CM->setGeometry(QRect(560, 30, 241, 21));
         stackedWidget->addWidget(scorepage);
         major_scorepage = new QWidget();
         major_scorepage->setObjectName("major_scorepage");
@@ -329,10 +329,10 @@ public:
         scholarshipTable->setGeometry(QRect(130, 40, 521, 381));
         evalScholarshipBtn = new QPushButton(mopage);
         evalScholarshipBtn->setObjectName("evalScholarshipBtn");
-        evalScholarshipBtn->setGeometry(QRect(680, 90, 71, 41));
+        evalScholarshipBtn->setGeometry(QRect(690, 150, 81, 41));
         exportScholarshipBtn = new QPushButton(mopage);
         exportScholarshipBtn->setObjectName("exportScholarshipBtn");
-        exportScholarshipBtn->setGeometry(QRect(680, 140, 81, 31));
+        exportScholarshipBtn->setGeometry(QRect(680, 200, 91, 31));
         stackedWidget->addWidget(mopage);
         fqpage = new QWidget();
         fqpage->setObjectName("fqpage");
@@ -357,7 +357,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(7);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
