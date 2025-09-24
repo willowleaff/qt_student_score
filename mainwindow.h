@@ -6,6 +6,7 @@
 #include"student.h"
 #include"normaldistributionplot.h"
 #include"scorepiechart.h"
+#include<QTableWidget>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -58,6 +59,7 @@ public:
     void displayScholarshipResults(const QVector<Student*>& students);
     void initScholarshipRules();
     void exportScholarshipResult();
+    bool exportTableToExcel(QTableWidget *table, const QString &defaultFileName);
 private slots:
 
     void on_LookBtn_released();
@@ -91,6 +93,16 @@ private slots:
     //void on_evalScholarshipBtn_released();
 
     void on_AnsBtn_released();
+
+    void on_numBtn_released();
+
+    void on_lookDL_released();
+
+    void on_numDL_released();
+
+    void on_classDL_released();
+
+    void on_rankDL_released();
 
 private:
     Ui::MainWindow *ui;

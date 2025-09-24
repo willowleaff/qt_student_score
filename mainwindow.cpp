@@ -371,16 +371,22 @@ void MainWindow::setFilterTWHeaders(const QString& subject)
     if (subject == "所有科目") {
         headers << "高等数学" << "大学物理" << "程序设计" << "数据结构" << "线性代数" << "离散数学";
     } else {
-        headers << subject;
+        headers << subject; // 单个科目时只添加选中的科目
     }
 
+    // 先设置列数，再设置表头（关键修复）
+    ui->filterTW->setColumnCount(headers.size());
     ui->filterTW->setHorizontalHeaderLabels(headers);
 }
 
 void MainWindow::filterStudents(const QString &filterType, const QString &value,
                                 const QString &subject, double minScore, double maxScore)
 {
+    // 清除原有数据和表头
     ui->filterTW->setRowCount(0);
+   // ui->filterTW->clearHeaders(); // 清除旧表头
+
+    // 根据科目设置新表头（包含列数设置）
     setFilterTWHeaders(subject);
 
     QMap<QString, int> subjectIndex = {
@@ -418,15 +424,21 @@ void MainWindow::filterStudents(const QString &filterType, const QString &value,
 
         if (scoreInRange) {
             ui->filterTW->insertRow(row);
+
+            // 基础信息列（0-4列）
             ui->filterTW->setItem(row, 0, new QTableWidgetItem(s->number));
             ui->filterTW->setItem(row, 1, new QTableWidgetItem(s->name));
             ui->filterTW->setItem(row, 2, new QTableWidgetItem(s->sex));
             ui->filterTW->setItem(row, 3, new QTableWidgetItem(s->major));
             ui->filterTW->setItem(row, 4, new QTableWidgetItem(s->classname));
 
+            // 成绩列（从第5列开始）
             if (subject == "所有科目") {
                 for (int i = 0; i < s->scores.size(); ++i) {
-                    ui->filterTW->setItem(row, 5 + i, new QTableWidgetItem(QString::number(s->scores[i])));
+                    // 确保不超过表格实际列数（避免越界）
+                    if (5 + i < ui->filterTW->columnCount()) {
+                        ui->filterTW->setItem(row, 5 + i, new QTableWidgetItem(QString::number(s->scores[i])));
+                    }
                 }
             } else if (subjectIndex.contains(subject)) {
                 int idx = subjectIndex[subject];
@@ -436,6 +448,12 @@ void MainWindow::filterStudents(const QString &filterType, const QString &value,
             row++;
         }
     }
+
+    // 自动调整列宽以显示完整表头和内容
+    ui->filterTW->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    // 强制刷新表格
+    ui->filterTW->updateGeometry();
+    ui->filterTW->viewport()->repaint();
 }
 
 void MainWindow::calculateStudentScores()
@@ -740,7 +758,7 @@ void MainWindow::on_downloadBtn_released()
     QString subject = (ui->class_scoreCb->isVisible()) ? ui->class_scoreCb->currentText() : ui->major_scoreCb->currentText();
     QVector<SubjectStats> stats = calculateAllClassOrMajorSubjectStats(type == "班级" ? "class" : "major", subject);
 
-    if (exportStatsToText(stats, type, subject)) {
+    if (exportTableToExcel(ui->statsTable, "班级/专业成绩信息表.xlsx")) {
         QMessageBox::information(this, "成功", "统计数据已导出为文本文件");
     }
 }
@@ -946,3 +964,224 @@ void MainWindow::exportScholarshipResult()
         QMessageBox::information(this, "成功", QString("奖学金结果已导出至:\n%1").arg(filePath));
     }
 }
+
+void MainWindow::on_numBtn_released()
+{
+    // 获取输入的学号
+    QString targetNumber = ui->numEt->text().trimmed();
+
+    // 检查输入是否为空
+    if (targetNumber.isEmpty()) {
+        QMessageBox::warning(this, "输入错误", "请输入要查询的学号");
+        ui->numTw->setRowCount(0); // 清空表格
+        return;
+    }
+
+    // 定义科目名称列表（与scores数组顺序对应）
+    QStringList subjectNames = {
+        "高等数学", "大学物理", "程序设计",
+        "数据结构", "线性代数", "离散数学"
+    };
+
+    // 查找对应的学生
+    Student* foundStudent = nullptr;
+    for (auto s : m_students) {
+        if (s->number == targetNumber) {
+            foundStudent = s;
+            break;
+        }
+    }
+
+    // 清空表格之前的数据
+    ui->numTw->clearContents();
+    ui->numTw->setRowCount(0);
+
+    // 处理查询结果
+    if (foundStudent) {
+        // 设置表格列数和表头
+        ui->numTw->setColumnCount(2);
+        QStringList headers = {"信息项", "内容"};
+        ui->numTw->setHorizontalHeaderLabels(headers);
+
+        // 添加基本信息行
+        int row = 0;
+
+        // 学号
+        ui->numTw->insertRow(row);
+        ui->numTw->setItem(row, 0, new QTableWidgetItem("学号"));
+        ui->numTw->setItem(row, 1, new QTableWidgetItem(foundStudent->number));
+        row++;
+
+        // 姓名
+        ui->numTw->insertRow(row);
+        ui->numTw->setItem(row, 0, new QTableWidgetItem("姓名"));
+        ui->numTw->setItem(row, 1, new QTableWidgetItem(foundStudent->name));
+        row++;
+
+        // 性别
+        ui->numTw->insertRow(row);
+        ui->numTw->setItem(row, 0, new QTableWidgetItem("性别"));
+        ui->numTw->setItem(row, 1, new QTableWidgetItem(foundStudent->sex));
+        row++;
+
+        // 专业
+        ui->numTw->insertRow(row);
+        ui->numTw->setItem(row, 0, new QTableWidgetItem("专业"));
+        ui->numTw->setItem(row, 1, new QTableWidgetItem(foundStudent->major));
+        row++;
+
+        // 班级
+        ui->numTw->insertRow(row);
+        ui->numTw->setItem(row, 0, new QTableWidgetItem("班级"));
+        ui->numTw->setItem(row, 1, new QTableWidgetItem(foundStudent->classname));
+        row++;
+
+        // 空行分隔
+        ui->numTw->insertRow(row);
+        ui->numTw->setItem(row, 0, new QTableWidgetItem(""));
+        ui->numTw->setItem(row, 1, new QTableWidgetItem(""));
+        row++;
+
+        // 添加各科目成绩
+        for (int i = 0; i < foundStudent->scores.size() && i < subjectNames.size(); ++i) {
+            ui->numTw->insertRow(row);
+            ui->numTw->setItem(row, 0, new QTableWidgetItem(subjectNames[i]));
+            ui->numTw->setItem(row, 1, new QTableWidgetItem(QString::number(foundStudent->scores[i])));
+            row++;
+        }
+
+        // 空行分隔
+        ui->numTw->insertRow(row);
+        ui->numTw->setItem(row, 0, new QTableWidgetItem(""));
+        ui->numTw->setItem(row, 1, new QTableWidgetItem(""));
+        row++;
+
+        // 总分
+        ui->numTw->insertRow(row);
+        ui->numTw->setItem(row, 0, new QTableWidgetItem("总分"));
+        ui->numTw->setItem(row, 1, new QTableWidgetItem(QString::number(foundStudent->totalScore)));
+        row++;
+
+        // 平均分
+        ui->numTw->insertRow(row);
+        ui->numTw->setItem(row, 0, new QTableWidgetItem("平均分"));
+        ui->numTw->setItem(row, 1, new QTableWidgetItem(QString::number(foundStudent->averageScore, 'f', 1)));
+        row++;
+
+        // 自动调整列宽
+        ui->numTw->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    } else {
+        // 未找到学生，显示错误信息
+        QMessageBox::critical(this, "查询错误", QString("未找到学号为 %1 的学生").arg(targetNumber));
+    }
+   ui->stackedWidget->setCurrentWidget(ui->numpage);
+}
+bool MainWindow::exportTableToExcel(QTableWidget *table, const QString &defaultFileName)
+{
+    if (!table || table->rowCount() == 0) {
+        QMessageBox::warning(this, "导出失败", "表格中没有数据可导出");
+        return false;
+    }
+
+    // 选择保存路径
+    QString filePath = QFileDialog::getSaveFileName(
+        this, "导出Excel文件", defaultFileName,
+        "Excel文件 (*.xlsx);;Excel 97-2003文件 (*.xls);;所有文件 (*)"
+        );
+
+    if (filePath.isEmpty()) return false;
+
+    // 检查Excel是否可用
+    QAxObject excel("Excel.Application");
+    if (excel.isNull()) {
+        QMessageBox::critical(this, "错误", "未检测到Excel，请先安装Microsoft Excel");
+        return false;
+    }
+
+    // 隐藏Excel窗口
+    excel.setProperty("Visible", false);
+    excel.setProperty("DisplayAlerts", false);
+
+    // 创建工作簿和工作表
+    QAxObject *workBooks = excel.querySubObject("Workbooks");
+    QAxObject *workBook = workBooks->querySubObject("Add");
+    QAxObject *workSheet = workBook->querySubObject("Worksheets(int)", 1);
+    workSheet->setProperty("Name", "表格数据");
+
+    // 写入表头
+    for (int col = 0; col < table->columnCount(); ++col) {
+        QTableWidgetItem *headerItem = table->horizontalHeaderItem(col);
+        QString headerText = headerItem ? headerItem->text() : QString("列 %1").arg(col + 1);
+
+        QAxObject *cell = workSheet->querySubObject("Cells(int, int)", 1, col + 1);
+        cell->setProperty("Value", headerText);
+        cell->querySubObject("Font")->setProperty("Bold", true);
+    }
+
+    // 写入表格数据
+    for (int row = 0; row < table->rowCount(); ++row) {
+        for (int col = 0; col < table->columnCount(); ++col) {
+            QTableWidgetItem *item = table->item(row, col);
+            QString cellText = item ? item->text() : "";
+
+            QAxObject *cell = workSheet->querySubObject("Cells(int, int)", row + 2, col + 1);
+            cell->setProperty("Value", cellText);
+
+            // 尝试将数字列设置为数字格式
+            bool isNumber;
+            cellText.toDouble(&isNumber);
+            if (isNumber) {
+                cell->setProperty("NumberFormat", "0.00");
+            }
+        }
+    }
+
+    // 自动调整列宽
+    workSheet->querySubObject("UsedRange")->dynamicCall("Columns.AutoFit()");
+
+    // 保存文件
+    bool saveSuccess = workBook->dynamicCall("SaveAs(const QString&)",
+                                             QDir::toNativeSeparators(filePath)).toBool();
+    if (!saveSuccess) {
+        QMessageBox::critical(this, "错误", "保存文件失败");
+    }
+
+    // 清理资源
+    workBook->dynamicCall("Close()");
+    excel.dynamicCall("Quit()");
+
+    delete workSheet;
+    delete workBook;
+    delete workBooks;
+
+    if (saveSuccess) {
+        QMessageBox::information(this, "成功", QString("数据已导出至:\n%1").arg(filePath));
+    }
+
+    return saveSuccess;
+}
+
+// LookTW表格导出
+void MainWindow::on_lookDL_released()
+{
+    exportTableToExcel(ui->LookTW, "学生信息表.xlsx");
+}
+
+// numTw表格导出（学号查询结果）
+void MainWindow::on_numDL_released()
+{
+    exportTableToExcel(ui->numTw, "学生成绩查询结果.xlsx");
+}
+
+// filterTW表格导出（筛选结果）
+void MainWindow::on_classDL_released()
+{
+    exportTableToExcel(ui->filterTW, "筛选结果表.xlsx");
+}
+
+// rankTable表格导出（排名表）
+void MainWindow::on_rankDL_released()
+{
+    exportTableToExcel(ui->rankTable, "成绩排名表.xlsx");
+}
+
