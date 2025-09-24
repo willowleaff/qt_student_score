@@ -188,6 +188,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_images.cpp
 debug\qrc_images.cpp: ..\..\images.qrc \
 		..\..\..\6.8.1\msvc2022_64\bin\rcc.exe \
+		..\..\student.txt \
 		..\..\images\background.png \
 		..\..\images\bg1.png
 	D:\qt\6.8.1\msvc2022_64\bin\rcc.exe -name images --no-zstd ..\..\images.qrc -o debug\qrc_images.cpp
@@ -398,11 +399,29 @@ debug\moc_mainwindow.cpp: ..\..\mainwindow.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QWidget \
 		..\..\student.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtCore\QString \
-		..\..\normaldistributionplot.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtCore\QVector \
 		..\..\..\6.8.1\msvc2022_64\include\QtCore\qvector.h \
+		..\..\normaldistributionplot.h \
 		..\..\scorepiechart.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtGui\QColor \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QTableWidget \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qtablewidget.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qtableview.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractitemview.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractscrollarea.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qframe.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtCore\qabstractitemmodel.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtCore\qitemselectionmodel.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractitemdelegate.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qstyleoption.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractspinbox.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtGui\qvalidator.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtCore\qregularexpression.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qslider.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractslider.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qstyle.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qtabbar.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qrubberband.h \
 		debug\moc_predefs.h \
 		..\..\..\6.8.1\msvc2022_64\bin\moc.exe
 	D:\qt\6.8.1\msvc2022_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include D:/qt/StudentManagement/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/debug/moc_predefs.h -ID:/qt/6.8.1/msvc2022_64/mkspecs/win32-msvc -ID:/qt/StudentManagement -ID:/qt/6.8.1/msvc2022_64/include -ID:/qt/6.8.1/msvc2022_64/include/QtAxContainer -ID:/qt/6.8.1/msvc2022_64/include/QtWidgets -ID:/qt/6.8.1/msvc2022_64/include/QtGui -ID:/qt/6.8.1/msvc2022_64/include/QtCore -I. -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" ..\..\mainwindow.h -o debug\moc_mainwindow.cpp
@@ -1020,11 +1039,29 @@ debug\main.obj: ..\..\main.cpp ..\..\mainwindow.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QWidget \
 		..\..\student.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtCore\QString \
-		..\..\normaldistributionplot.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtCore\QVector \
 		..\..\..\6.8.1\msvc2022_64\include\QtCore\qvector.h \
+		..\..\normaldistributionplot.h \
 		..\..\scorepiechart.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtGui\QColor \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QTableWidget \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qtablewidget.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qtableview.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractitemview.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractscrollarea.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qframe.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtCore\qabstractitemmodel.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtCore\qitemselectionmodel.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractitemdelegate.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qstyleoption.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractspinbox.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtGui\qvalidator.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtCore\qregularexpression.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qslider.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractslider.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qstyle.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qtabbar.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qrubberband.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QApplication \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qapplication.h
 
@@ -1223,17 +1260,19 @@ debug\mainwindow.obj: ..\..\mainwindow.cpp ..\..\mainwindow.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QWidget \
 		..\..\student.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtCore\QString \
-		..\..\normaldistributionplot.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtCore\QVector \
 		..\..\..\6.8.1\msvc2022_64\include\QtCore\qvector.h \
+		..\..\normaldistributionplot.h \
 		..\..\scorepiechart.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtGui\QColor \
-		ui_mainwindow.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\QVariant \
-		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QApplication \
-		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qapplication.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QComboBox \
-		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qcombobox.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QTableWidget \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qtablewidget.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qtableview.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractitemview.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractscrollarea.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qframe.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtCore\qabstractitemmodel.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtCore\qitemselectionmodel.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractitemdelegate.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qstyleoption.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractspinbox.h \
@@ -1244,14 +1283,15 @@ debug\mainwindow.obj: ..\..\mainwindow.cpp ..\..\mainwindow.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qstyle.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qtabbar.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qrubberband.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qframe.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qabstractitemmodel.h \
+		ui_mainwindow.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtCore\QVariant \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QApplication \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qapplication.h \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QComboBox \
+		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qcombobox.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QFrame \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QHeaderView \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qheaderview.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractitemview.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qabstractscrollarea.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qitemselectionmodel.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QLabel \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qlabel.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtGui\qpicture.h \
@@ -1272,9 +1312,6 @@ debug\mainwindow.obj: ..\..\mainwindow.cpp ..\..\mainwindow.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qstackedwidget.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QStatusBar \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qstatusbar.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QTableWidget \
-		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qtablewidget.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qtableview.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QToolBar \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\qtoolbar.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtWidgets\QVBoxLayout \
@@ -1708,116 +1745,7 @@ debug\scorepiechart.obj: ..\..\scorepiechart.cpp ..\..\scorepiechart.h \
 		..\..\..\6.8.1\msvc2022_64\include\QtCore\QtMath \
 		..\..\..\6.8.1\msvc2022_64\include\QtGui\QResizeEvent
 
-debug\student.obj: ..\..\student.cpp ..\..\student.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\QString \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qstring.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qchar.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qglobal.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtversionchecks.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtconfiginclude.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qconfig.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtcore-config.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtconfigmacros.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtdeprecationdefinitions.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtcoreexports.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qcompilerdetection.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qprocessordetection.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qsystemdetection.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtdeprecationmarkers.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtclasshelpermacros.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtpreprocessorsupport.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qassert.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtnoop.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtypes.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtversion.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtypeinfo.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qcontainerfwd.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qsysinfo.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qlogging.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qflags.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qcompare_impl.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qatomic.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qbasicatomic.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qatomic_cxx11.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qgenericatomic.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qyieldcpu.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qconstructormacros.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qdarwinhelpers.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qexceptionhandling.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qforeach.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qttypetraits.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qfunctionpointer.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qglobalstatic.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qmalloc.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qminmax.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qnumeric.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qoverload.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qswap.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtenvironmentvariables.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtresource.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qttranslation.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qversiontagging.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qcompare.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qcomparehelpers.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\q20type_traits.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qstringview.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qbytearray.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qrefcount.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qnamespace.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtmetamacros.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qarraydata.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qpair.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qarraydatapointer.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qarraydataops.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qcontainertools_impl.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qxptype_traits.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\q20functional.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\q20memory.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qbytearrayalgorithms.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qbytearrayview.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qstringfwd.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qstringliteral.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qstringalgorithms.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qlatin1stringview.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qanystringview.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qutf8stringview.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qstringtokenizer.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qstringbuilder.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qstringconverter.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qstringconverter_base.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\QDebug \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qdebug.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtextstream.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qiodevicebase.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qscopedpointer.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qcontiguouscache.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qsharedpointer.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qshareddata.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qhashfunctions.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qsharedpointer_impl.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qmetatype.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qdatastream.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qfloat16.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qmath.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qalgorithms.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qiterable.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qmetacontainer.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qcontainerinfo.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qtaggedpointer.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qobjectdefs.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qobjectdefs_impl.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qfunctionaltools_impl.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qscopeguard.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qlist.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qiterator.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qbytearraylist.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qstringlist.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qstringmatcher.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qmap.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qshareddata_impl.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qset.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qhash.h \
-		..\..\..\6.8.1\msvc2022_64\include\QtCore\qvarlengtharray.h
+debug\student.obj: ..\..\student.cpp 
 
 debug\qrc_images.obj: debug\qrc_images.cpp 
 

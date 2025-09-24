@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     initStatPageLayout();
     initSubjectCombo();
-    loadData("D:\\qt\\student\\student.txt");
+    loadData("D:\\qt\\StudentManagement\\student.txt");
     calculateStudentScores();
     initScholarshipRules();
 
