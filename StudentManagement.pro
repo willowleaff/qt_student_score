@@ -31,3 +31,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     images.qrc
+
+DISTFILES += \
+    images/student.txt \
+    student.txt
