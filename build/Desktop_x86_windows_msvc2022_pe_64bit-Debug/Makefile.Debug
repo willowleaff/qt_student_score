@@ -68,7 +68,8 @@ OBJECTS       = debug\main.obj \
 		debug\moc_normaldistributionplot.obj \
 		debug\moc_scorepiechart.obj
 
-DIST          =  ..\..\mainwindow.h \
+DIST          = images/student.txt \
+		student.txt ..\..\mainwindow.h \
 		..\..\normaldistributionplot.h \
 		..\..\scorepiechart.h \
 		..\..\student.h ..\..\main.cpp \
@@ -188,7 +189,6 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_images.cpp
 debug\qrc_images.cpp: ..\..\images.qrc \
 		..\..\..\6.8.1\msvc2022_64\bin\rcc.exe \
-		..\..\student.txt \
 		..\..\images\background.png \
 		..\..\images\bg1.png
 	D:\qt\6.8.1\msvc2022_64\bin\rcc.exe -name images --no-zstd ..\..\images.qrc -o debug\qrc_images.cpp
