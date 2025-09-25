@@ -12,6 +12,7 @@
 #include <numeric>
 #include <QAxObject>
 #include <limits>
+#include "scoreinputdialog.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -20,6 +21,13 @@ MainWindow::MainWindow(QWidget *parent)
     , m_selectedMajor("")
 {
     ui->setupUi(this);
+    // 补充：默认表头初始化（防止loadData失败时m_fields为空）
+    if (m_fields.isEmpty()) {
+        m_fields = {
+            "学号", "姓名", "性别", "专业", "班级",
+            "高等数学", "大学物理", "程序设计", "数据结构", "线性代数", "离散数学"
+        };
+    }
     initStatPageLayout();
     initSubjectCombo();
     loadData("student.txt");
@@ -27,8 +35,10 @@ MainWindow::MainWindow(QWidget *parent)
     initScholarshipRules();
 
     // 关联按钮事件
+   // connect(ui->btnAddScore, &QPushButton::released, this, &MainWindow::on_btnAddScore_released);
     connect(ui->evalScholarshipBtn, &QPushButton::released, this, &MainWindow::evaluateScholarship);
     connect(ui->exportScholarshipBtn, &QPushButton::released, this, &MainWindow::exportScholarshipResult);
+    connect(ui->btnDeleteStudent, &QPushButton::released, this, &MainWindow::on_btnDeleteStudent_released);
 }
 
 MainWindow::~MainWindow()
@@ -1183,5 +1193,146 @@ void MainWindow::on_classDL_released()
 void MainWindow::on_rankDL_released()
 {
     exportTableToExcel(ui->rankTable, "成绩排名表.xlsx");
+}
+#include "scoreinputdialog.h"
+
+// 校验学号唯一性
+bool MainWindow::isStudentNumberUnique(const QString& number)
+{
+    for (auto s : m_students) {
+        if (s->number == number) {
+            return false; // 学号已存在
+        }
+    }
+    return true; // 学号唯一
+}
+
+// 刷新查看表格（LookTW）
+void MainWindow::refreshLookTable()
+{
+    // 清空表格并重新填充（复用on_LookBtn_released()的逻辑）
+    ui->LookTW->setRowCount(0);
+    ui->LookTW->setColumnCount(m_fields.size());
+    ui->LookTW->setHorizontalHeaderLabels(m_fields);
+
+    for (auto s : m_students) {
+        int row = ui->LookTW->rowCount();
+        ui->LookTW->insertRow(row);
+
+        // 填充基础信息
+        ui->LookTW->setItem(row, 0, new QTableWidgetItem(s->number));
+        ui->LookTW->setItem(row, 1, new QTableWidgetItem(s->name));
+        ui->LookTW->setItem(row, 2, new QTableWidgetItem(s->sex));
+        ui->LookTW->setItem(row, 3, new QTableWidgetItem(s->major));
+        ui->LookTW->setItem(row, 4, new QTableWidgetItem(s->classname));
+
+        // 填充成绩
+        for (int i = 0; i < s->scores.size(); ++i) {
+            if (5 + i < ui->LookTW->columnCount()) {
+                ui->LookTW->setItem(row, 5 + i, new QTableWidgetItem(QString::number(s->scores[i])));
+            }
+        }
+    }
+}
+
+// 新增成绩录入按钮点击事件
+void MainWindow::on_btnAddScore_released()
+{
+    // 1. 创建新增模式的弹窗
+    ScoreInputDialog dialog(nullptr, this);
+    // 2. 显示弹窗，等待用户操作
+    if (dialog.exec() == QDialog::Accepted) {
+        // 3. 获取弹窗录入的学生对象
+        Student* newStudent = dialog.getInputStudent();
+        // 4. 补充学号唯一性校验
+        if (!isStudentNumberUnique(newStudent->number)) {
+            QMessageBox::warning(this, "错误", "学号已存在，请重新录入！");
+            delete newStudent; // 释放重复的对象
+            return;
+        }
+        // 5. 将新学生加入m_students列表
+        m_students.push_back(newStudent);
+        // 6. 刷新表格显示
+        refreshLookTable();
+        // 7. 自动保存到文件
+        saveData("D:\\qt\\student\\student.txt");
+        QMessageBox::information(this, "成功", "新增学生成绩录入完成！");
+    }
+}
+
+void MainWindow::on_btnDeleteStudent_released()
+{
+    // 1. 获取输入的学号
+    QString targetNumber = ui->numEt->text().trimmed();
+
+    // 2. 校验学号是否为空
+    if (targetNumber.isEmpty()) {
+        QMessageBox::warning(this, "输入错误", "请输入要删除的学号");
+        return;
+    }
+
+    // 3. 查找该学号对应的学生
+    Student* foundStudent = nullptr;
+    int index = -1;
+    for (int i = 0; i < m_students.size(); ++i) {
+        if (m_students[i]->number == targetNumber) {
+            foundStudent = m_students[i];
+            index = i;
+            break;
+        }
+    }
+
+    // 4. 未找到学生的处理
+    if (!foundStudent) {
+        QMessageBox::critical(this, "删除失败", QString("未找到学号为 %1 的学生").arg(targetNumber));
+        return;
+    }
+
+    // 5. 二次确认（防止误删）
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "确认删除",
+                                  QString("确定要删除学号为 %1 的学生 %2 吗？\n删除后数据不可恢复！")
+                                      .arg(foundStudent->number).arg(foundStudent->name),
+                                  QMessageBox::Yes | QMessageBox::No);
+
+    if (reply != QMessageBox::Yes) {
+        return; // 用户取消删除
+    }
+
+    // 6. 执行删除操作
+    delete foundStudent; // 释放学生对象内存
+    m_students.removeAt(index); // 从列表中移除
+
+    // 7. 同步更新界面（清空查询表格，刷新查看表格）
+    ui->numTw->setRowCount(0); // 清空学号查询结果表格
+    refreshLookTable(); // 刷新查看学生表格（复用之前的刷新函数）
+
+    // 8. 保存删除后的数据到文件
+    saveData("D:\\qt\\student\\student.txt");
+
+    // 9. 提示删除成功
+    QMessageBox::information(this, "删除成功", QString("学号为 %1 的学生数据已删除").arg(targetNumber));
+}
+
+
+void MainWindow::on_btnModifyByNumber_released()
+{
+    // 1. 获取输入的目标学号
+    QString targetNumber = ui->numEt->text().trimmed();
+    // 2. 校验学号是否为空
+    if (targetNumber.isEmpty ()) {QMessageBox::warning (this, "输入错误", "请先输入要修改的学号");return;}
+    // 3. 遍历顺序表 m_students，查找学号匹配的学生
+    Student* targetStudent = nullptr;for (auto s : m_students)
+    {
+        if (s->number == targetNumber) {targetStudent = s;break; // 学号唯一，找到后直接退出循环}}
+    // 4. 未找到学生的处理
+        if (!targetStudent) {QMessageBox::critical (this, "修改失败", QString ("未找到学号为 %1 的学生").arg (targetNumber));return;}
+    // 5. 打开修改模式的弹窗（传入找到的学生对象，弹窗会自动填充现有数据）
+        ScoreInputDialog modifyDialog (targetStudent, this);// 6. 等待用户在弹窗中完成修改（点击确认 / 取消）if (modifyDialog.exec () == QDialog::Accepted) {// 7. 弹窗确认后：刷新界面表格（数据已在弹窗中直接修改到 targetStudent）ui->numTw->setRowCount (0); // 清空原查询结果表格refreshLookTable (); // 刷新 “查看学生” 表格，显示修改后的数据
+    // 8. 保存修改后的数据到文件（持久化，避免重启丢失）
+        saveData ("D:\\qt\\student\\student.txt");
+    // 9. 提示修改成功
+        QMessageBox::information (this, "修改成功",QString ("学号为 %1 的学生信息已更新").arg (targetNumber));}
+    }
 }
 

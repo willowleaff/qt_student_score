@@ -41,6 +41,7 @@ public:
     QLabel *StuLa;
     QPushButton *AsBtn;
     QPushButton *MoBtn;
+    QPushButton *btnAddScore;
     QWidget *Anspage;
     QLabel *label_7;
     QPushButton *AnsBtn;
@@ -70,6 +71,8 @@ public:
     QLabel *label_14;
     QLabel *label_15;
     QLabel *label_17;
+    QPushButton *btnDeleteStudent;
+    QPushButton *btnModifyByNumber;
     QWidget *numpage;
     QTableWidget *numTw;
     QPushButton *numDL;
@@ -171,11 +174,11 @@ public:
         memupage->setObjectName("memupage");
         LookBtn = new QPushButton(memupage);
         LookBtn->setObjectName("LookBtn");
-        LookBtn->setGeometry(QRect(350, 130, 111, 31));
+        LookBtn->setGeometry(QRect(350, 180, 111, 31));
         LookBtn->setMinimumSize(QSize(61, 0));
         StatBtn = new QPushButton(memupage);
         StatBtn->setObjectName("StatBtn");
-        StatBtn->setGeometry(QRect(350, 180, 111, 31));
+        StatBtn->setGeometry(QRect(350, 230, 111, 31));
         QuitBtn = new QPushButton(memupage);
         QuitBtn->setObjectName("QuitBtn");
         QuitBtn->setGeometry(QRect(30, 20, 71, 31));
@@ -184,10 +187,13 @@ public:
         StuLa->setGeometry(QRect(310, 40, 191, 61));
         AsBtn = new QPushButton(memupage);
         AsBtn->setObjectName("AsBtn");
-        AsBtn->setGeometry(QRect(300, 240, 81, 31));
+        AsBtn->setGeometry(QRect(300, 280, 81, 31));
         MoBtn = new QPushButton(memupage);
         MoBtn->setObjectName("MoBtn");
-        MoBtn->setGeometry(QRect(430, 240, 81, 31));
+        MoBtn->setGeometry(QRect(440, 280, 81, 31));
+        btnAddScore = new QPushButton(memupage);
+        btnAddScore->setObjectName("btnAddScore");
+        btnAddScore->setGeometry(QRect(350, 130, 111, 31));
         stackedWidget->addWidget(memupage);
         Anspage = new QWidget();
         Anspage->setObjectName("Anspage");
@@ -264,10 +270,10 @@ public:
         label_5->setGeometry(QRect(290, 220, 51, 21));
         numBtn = new QPushButton(choopage);
         numBtn->setObjectName("numBtn");
-        numBtn->setGeometry(QRect(510, 270, 91, 31));
+        numBtn->setGeometry(QRect(440, 310, 71, 31));
         numEt = new QLineEdit(choopage);
         numEt->setObjectName("numEt");
-        numEt->setGeometry(QRect(350, 280, 113, 20));
+        numEt->setGeometry(QRect(350, 280, 171, 20));
         label_14 = new QLabel(choopage);
         label_14->setObjectName("label_14");
         label_14->setGeometry(QRect(290, 270, 51, 21));
@@ -277,6 +283,12 @@ public:
         label_17 = new QLabel(choopage);
         label_17->setObjectName("label_17");
         label_17->setGeometry(QRect(10, 0, 121, 51));
+        btnDeleteStudent = new QPushButton(choopage);
+        btnDeleteStudent->setObjectName("btnDeleteStudent");
+        btnDeleteStudent->setGeometry(QRect(350, 310, 71, 31));
+        btnModifyByNumber = new QPushButton(choopage);
+        btnModifyByNumber->setObjectName("btnModifyByNumber");
+        btnModifyByNumber->setGeometry(QRect(530, 310, 81, 31));
         stackedWidget->addWidget(choopage);
         numpage = new QWidget();
         numpage->setObjectName("numpage");
@@ -445,7 +457,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(6);
+        stackedWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -460,6 +472,7 @@ public:
         StuLa->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; color:#000000;\">\345\255\246\347\224\237\346\210\220\347\273\251\347\256\241\347\220\206\347\263\273\347\273\237</span></p></body></html>", nullptr));
         AsBtn->setText(QCoreApplication::translate("MainWindow", "\346\210\220\347\273\251\345\210\206\346\236\220", nullptr));
         MoBtn->setText(QCoreApplication::translate("MainWindow", "\345\245\226\345\255\246\351\207\221\350\257\204\345\256\232", nullptr));
+        btnAddScore->setText(QCoreApplication::translate("MainWindow", "\346\210\220\347\273\251\345\275\225\345\205\245", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "\346\255\243\346\200\201\345\210\206\345\270\203\345\233\276/\346\235\241\345\275\242\345\233\276", nullptr));
         AnsBtn->setText(QCoreApplication::translate("MainWindow", "\345\210\206\346\236\220", nullptr));
         label_16->setText(QCoreApplication::translate("MainWindow", "\347\247\221\347\233\256\357\274\232", nullptr));
@@ -479,6 +492,8 @@ public:
         label_14->setText(QCoreApplication::translate("MainWindow", "\345\255\246\345\217\267:", nullptr));
         label_15->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
         label_17->setText(QCoreApplication::translate("MainWindow", "\345\255\246\347\224\237\346\210\220\347\273\251\347\255\233\351\200\211", nullptr));
+        btnDeleteStudent->setText(QCoreApplication::translate("MainWindow", "\345\255\246\345\217\267\345\210\240\351\231\244", nullptr));
+        btnModifyByNumber->setText(QCoreApplication::translate("MainWindow", "\345\255\246\345\217\267\344\277\256\346\224\271", nullptr));
         numDL->setText(QCoreApplication::translate("MainWindow", "\344\270\213\350\275\275\346\226\207\344\273\266", nullptr));
         label_18->setText(QCoreApplication::translate("MainWindow", "\345\255\246\347\224\237\346\210\220\347\273\251", nullptr));
         classDL->setText(QCoreApplication::translate("MainWindow", "\344\270\213\350\275\275\346\226\207\344\273\266", nullptr));

@@ -103,6 +103,11 @@ private slots:
     void on_classDL_released();
 
     void on_rankDL_released();
+    void on_btnAddScore_released();
+
+    void on_btnDeleteStudent_released();
+
+    void on_btnModifyByNumber_released();
 
 private:
     Ui::MainWindow *ui;
@@ -115,6 +120,9 @@ private:
     QVector<Scholarship> m_scholarshipRules; // 奖学金规则
     QString m_selectedSubject;
     QString m_selectedMajor;
+    bool isStudentNumberUnique(const QString& number);
+    // 刷新查看表格（LookTW）数据
+    void refreshLookTable();
     void filterStudents(const QString &filterType, const QString &value,
                         const QString &subject, double minScore, double maxScore);//函数
 };

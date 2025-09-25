@@ -1,5 +1,7 @@
 QT       += core gui
 QT += axcontainer
+QT += widgets
+QT += gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
@@ -12,12 +14,14 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     normaldistributionplot.cpp \
+    scoreinputdialog.cpp \
     scorepiechart.cpp \
     student.cpp
 
 HEADERS += \
     mainwindow.h \
     normaldistributionplot.h \
+    scoreinputdialog.h \
     scorepiechart.h \
     student.h
 

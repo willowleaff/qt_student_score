@@ -55,14 +55,14 @@ QLabel
 }</string>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="memupage">
        <widget class="QPushButton" name="LookBtn">
         <property name="geometry">
          <rect>
           <x>350</x>
-          <y>130</y>
+          <y>180</y>
           <width>111</width>
           <height>31</height>
          </rect>
@@ -81,7 +81,7 @@ QLabel
         <property name="geometry">
          <rect>
           <x>350</x>
-          <y>180</y>
+          <y>230</y>
           <width>111</width>
           <height>31</height>
          </rect>
@@ -120,7 +120,7 @@ QLabel
         <property name="geometry">
          <rect>
           <x>300</x>
-          <y>240</y>
+          <y>280</y>
           <width>81</width>
           <height>31</height>
          </rect>
@@ -132,14 +132,27 @@ QLabel
        <widget class="QPushButton" name="MoBtn">
         <property name="geometry">
          <rect>
-          <x>430</x>
-          <y>240</y>
+          <x>440</x>
+          <y>280</y>
           <width>81</width>
           <height>31</height>
          </rect>
         </property>
         <property name="text">
          <string>奖学金评定</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnAddScore">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>130</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>成绩录入</string>
         </property>
        </widget>
       </widget>
@@ -407,9 +420,9 @@ QLabel
        <widget class="QPushButton" name="numBtn">
         <property name="geometry">
          <rect>
-          <x>510</x>
-          <y>270</y>
-          <width>91</width>
+          <x>440</x>
+          <y>310</y>
+          <width>71</width>
           <height>31</height>
          </rect>
         </property>
@@ -422,7 +435,7 @@ QLabel
          <rect>
           <x>350</x>
           <y>280</y>
-          <width>113</width>
+          <width>171</width>
           <height>20</height>
          </rect>
         </property>
@@ -464,6 +477,32 @@ QLabel
         </property>
         <property name="text">
          <string>学生成绩筛选</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnDeleteStudent">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>310</y>
+          <width>71</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>学号删除</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnModifyByNumber">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>310</y>
+          <width>81</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>学号修改</string>
         </property>
        </widget>
       </widget>
